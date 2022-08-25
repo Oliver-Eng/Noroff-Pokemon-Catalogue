@@ -38,9 +38,17 @@ export class PokemonCatalogueService {
             return;
         }
 
+        const imageUrl: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
+
         this._loading = true;
         this.http.get<PokemonResults>(apiPoke + 'pokemon?limit=100000&offset=0.').subscribe({
             next: (pokemonResults: PokemonResults) => {
+                // add additional ID and image information
+                pokemonResults.results.forEach((result, iteration) => {
+                    result.id = iteration + 1;
+                    result.image = imageUrl + (iteration + 1) + '.png';
+                });
+
                 StorageUtil.sessionStorageSave(StorageKeys.PokemonList, pokemonResults.results);
                 this._pokemon = pokemonResults.results;
             },
@@ -48,7 +56,7 @@ export class PokemonCatalogueService {
                 this._error = error.message;
             },
             complete: () => {
-                this._loading = true;
+                this._loading = false;
             },
         });
     }
