@@ -5,27 +5,27 @@ import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogu
 import { LoginPage } from './pages/login/login/login.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/login',
-  },
-  {
-    path: 'login',
-    component: LoginPage,
-  },
-  {
-    path: 'trainer',
-    component: TrainerPage,
-  },
-  {
-    path: 'catalogue',
-    component: PokemonCataloguePage,
-  },
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: '/login',
+    },
+    {
+        path: 'login',
+        component: LoginPage,
+    },
+    {
+        path: 'trainer',
+        component: TrainerPage,
+    },
+    {
+        path: 'catalogue',
+        component: PokemonCataloguePage,
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
 export class AppRoutingModule {}
