@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginPage } from './pages/login/login/login.page';
@@ -10,6 +9,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PokemonCatalogueComponent } from './components/pokemon-catalogue/pokemon-catalogue.component';
 import { PokemonCatalogueItemComponent } from './components/pokemon-catalogue-item/pokemon-catalogue-item.component';
 import { CatchButtonComponent } from './components/catch-button/catch-button.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,7 @@ import { CatchButtonComponent } from './components/catch-button/catch-button.com
         PokemonCatalogueItemComponent,
         CatchButtonComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
     providers: [],
     bootstrap: [AppComponent],
 })
