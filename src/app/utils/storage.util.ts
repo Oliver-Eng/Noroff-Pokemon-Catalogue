@@ -1,3 +1,5 @@
+import { __values } from 'tslib';
+
 export class StorageUtil {
     // Save data to local storage with key & value
     public static localStorageSave<T>(key: string, value: T): void {
@@ -25,16 +27,16 @@ export class StorageUtil {
 
     // Save data to session storage with key & value
     public static sessionStorageSave<T>(key: string, value: T): void {
-        console.log('sessionStorage value received = ' + JSON.stringify(value));
         sessionStorage.setItem(key, JSON.stringify(value));
     }
 
     // Read data from session storage by key
     public static sessionStorageRead<T>(key: string): T | undefined {
-        const storedValue = localStorage.getItem(key);
+        const storedValue = sessionStorage.getItem(key);
         try {
             return storedValue ? (JSON.parse(storedValue) as T) : undefined;
         } catch (error) {
+            console.log('what on earth..');
             sessionStorage.removeItem(key); // if data can't be read, remove it.
             return undefined;
         }
