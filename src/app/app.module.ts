@@ -11,11 +11,13 @@ import { PokemonCatalogueItemComponent } from './components/pokemon-catalogue-it
 import { CatchButtonComponent } from './components/catch-button/catch-button.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginPage,
+        LoginFormComponent,
         TrainerPage,
         PokemonCataloguePage,
         NavbarComponent,
