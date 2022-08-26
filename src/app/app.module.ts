@@ -9,11 +9,20 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CatchButtonComponent } from './components/catch-button/catch-button.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
-import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
-    declarations: [AppComponent, LoginPage, TrainerPage, PokemonCataloguePage, NavbarComponent, CatchButtonComponent, PokemonListItemComponent, PokemonListComponent],
+    declarations: [
+        AppComponent,
+        LoginPage,
+        LoginFormComponent,
+        TrainerPage,
+        PokemonCataloguePage,
+        NavbarComponent,
+        PokemonCatalogueComponent,
+        PokemonCatalogueItemComponent,
+        CatchButtonComponent,
+    ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
     providers: [],
     bootstrap: [AppComponent],
