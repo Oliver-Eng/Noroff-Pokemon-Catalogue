@@ -10,6 +10,8 @@ import { CatchButtonComponent } from './components/catch-button/catch-button.com
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
 
 @NgModule({
     declarations: [
@@ -19,8 +21,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
         TrainerPage,
         PokemonCataloguePage,
         NavbarComponent,
-        PokemonCatalogueComponent,
-        PokemonCatalogueItemComponent,
+        PokemonListComponent,
+        PokemonListItemComponent,
         CatchButtonComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
