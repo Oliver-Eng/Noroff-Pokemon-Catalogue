@@ -28,23 +28,28 @@
                 <div *ngIf="!showMore">show stats</div>
                 <div *ngIf="showMore">hide stats</div>
             </button>
-            <div *ngIf="showMore" class="text-sm">
-                <ul class="text-red-800" *ngIf="!loading">
-                    <li class="border-b-2 mt-0.5 w-40 mx-auto justify-center border-gray-200">
-                        <a><span class="font-semibold text-black">hp:</span> {{ pokemonStats[0].base_stat }}</a>
-                    </li>
-                    <li class="border-b-2 my-0.5 w-40 mx-auto justify-center border-gray-200">
-                        <a class="pr-2"><span class="font-semibold text-black">atk:</span> {{ pokemonStats[1].base_stat }}</a>
-                        <a><span class="font-semibold text-black">def:</span> {{ pokemonStats[2].base_stat }}</a>
-                    </li>
-                    <li class="border-b-2 my-0.5 w-40 mx-auto justify-center border-gray-200">
-                        <a class="pr-2"><span class="font-semibold text-black">sp_atk:</span> {{ pokemonStats[3].base_stat }}</a>
-                        <a><span class="font-semibold text-black">sp_def:</span> {{ pokemonStats[4].base_stat }}</a>
-                    </li>
-                    <li class="mt-0.5 w-40 mx-auto justify-center">
-                        <a><span class="font-semibold text-black">spd:</span> {{ pokemonStats[5].base_stat }}</a>
-                    </li>
-                </ul>
+            <div class="justify-center items-center" *ngIf="loading">
+                <img class="animate-spin saturate-0 ml-19 w-20 opacity-25" src="./assets/images/pokeball_logo.png" alt="Y" />
+            </div>
+            <div *ngIf="!loading">
+                <div *ngIf="showMore" class="text-sm">
+                    <ul class="text-red-800" *ngIf="!loading">
+                        <li class="border-b-2 mt-0.5 w-40 mx-auto justify-center border-gray-200">
+                            <a><span class="font-semibold text-black">hp:</span> {{ pokemonStats[0].base_stat }}</a>
+                        </li>
+                        <li class="border-b-2 my-0.5 w-40 mx-auto justify-center border-gray-200">
+                            <a class="pr-2"><span class="font-semibold text-black">atk:</span> {{ pokemonStats[1].base_stat }}</a>
+                            <a><span class="font-semibold text-black">def:</span> {{ pokemonStats[2].base_stat }}</a>
+                        </li>
+                        <li class="border-b-2 my-0.5 w-40 mx-auto justify-center border-gray-200">
+                            <a class="pr-2"><span class="font-semibold text-black">sp_atk:</span> {{ pokemonStats[3].base_stat }}</a>
+                            <a><span class="font-semibold text-black">sp_def:</span> {{ pokemonStats[4].base_stat }}</a>
+                        </li>
+                        <li class="mt-0.5 w-40 mx-auto justify-center">
+                            <a><span class="font-semibold text-black">spd:</span> {{ pokemonStats[5].base_stat }}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
