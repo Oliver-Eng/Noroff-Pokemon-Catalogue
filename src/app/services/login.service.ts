@@ -24,26 +24,6 @@ export class LoginService {
         );
     }
 
-    /* public reLogin(username: string): boolean {
-        console.log('username', username);
-        const userExistsInApi = this.checkUsername(username).pipe(
-            switchMap((user: User | undefined) => {
-                if (user === undefined) {
-                    console.log('user undefined', user);
-                    return of(user);
-                }
-                console.log('type of', typeof user);
-                return of(user);
-            })
-        );
-        console.log('userExistsInApi', userExistsInApi);
-        if (userExistsInApi === undefined) {
-            return false;
-        } else {
-            return true;
-        }
-    } */
-
     public checkUsername(username: string): Observable<User | undefined> {
         return this.http.get<User[]>(`${apiTrainer}?username=${username}`).pipe(map((response: User[]) => response.pop()));
     }

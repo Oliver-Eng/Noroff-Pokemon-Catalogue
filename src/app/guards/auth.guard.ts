@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-    ActivatedRouteSnapshot,
-    CanActivate,
-    Router,
-    RouterStateSnapshot,
-    UrlTree,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from '../services/login.service';
 import { UserService } from '../services/user.service';
@@ -24,11 +18,7 @@ export class AuthGuard implements CanActivate {
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
-    ):
-        | Observable<boolean | UrlTree>
-        | Promise<boolean | UrlTree>
-        | boolean
-        | UrlTree {
+    ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         // Check if a user exists in local session storage.
         if (this._userService.user) {
             let userToCheck = this._userService.user.username;
@@ -36,20 +26,15 @@ export class AuthGuard implements CanActivate {
             this._loginService.checkUsername(userToCheck).subscribe({
                 next: (user: User | undefined) => {
                     if (user === undefined) {
-                        console.log(
-                            `Auth: user ${userToCheck} does not exist in API`,
-                            user
-                        );
+                        console.log(`Auth: user "${userToCheck}" does not exist in API`);
                         this._userService.user = undefined; // delete local session for the invalid user
                         this.router.navigateByUrl('/login'); // redirect to logon page
                     } else {
-                        console.log(`Auth: user ${userToCheck} exist in API`); // user exist, continue
+                        console.log(`Auth: user "${userToCheck}" exist in API`); // user exist, continue
                     }
                 },
                 error: () => {
-                    console.log(
-                        'Auth: Error condition at _loginService.checkUsername'
-                    );
+                    console.log('Auth: Error condition at _loginService.checkUsername');
                 },
             });
 

@@ -1,14 +1,26 @@
-<form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
-    <fieldset class="mb-3">
-        <label for="username" class="block">Trainer name</label>
+<div class="grid place-items-center">
+    <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
+        <label for="username" class="block text-2xl font-bold text-gray-800 capitalize pb-5">What is your name?</label>
         <input
             type="text"
             ngModel
-            #trainerName="ngModel"
+            #username="ngModel"
             name="username"
+            required
+            minlength="2"
             id="username"
-            class="border border-slate-300 p-2 rounded w-40"
+            class="p-2 w-40 bg-gray-50 rounded-lg h-8 border border-gray-300"
         />
-    </fieldset>
-    <button type="submit" class="bg-blue-500 p-2 rounded w-40">Login</button>
-</form>
+        <button
+            type="submit"
+            [disabled]="loginForm.form.invalid"
+            class="bg-red-800 shadow-xl w-20 h-8 mx-auto -my-4 rounded-3xl text-white ml-10"
+        >
+            Login
+        </button>
+        <div *ngIf="username.errors && (username.dirty || username.touched)">
+            <p *ngIf="username.errors?.['required']">Name is required</p>
+            <p *ngIf="username.errors?.['minlength']">Name must be at least 2 characters</p>
+        </div>
+    </form>
+</div>
