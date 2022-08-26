@@ -50,6 +50,7 @@ export class LoginService {
 
     private createTrainer(username: string): Observable<User> {
         const trainer = {
+            id: 0,
             username,
             pokemon: [],
         };
