@@ -16,6 +16,10 @@ module.exports = {
                     900: "#0d1015",
                 },
             },
+            spacing: {
+                38: "9.5rem",
+                46: "11.5rem",
+            },
         },
     },
     plugins: [],

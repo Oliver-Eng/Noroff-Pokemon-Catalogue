@@ -1,5 +1,8 @@
-<li class="border-gray-400 flex mb-6 mx-3">
-    <div class="mx-auto align overflow-hidden bg-white rounded-3xl shadow-md w-60 h-56 shadow-red-900 border-solid border-2">
+<li class="border-gray-400 flex-auto mb-6 mx-3">
+    <div *ngIf="showMore"></div>
+    <div
+        class="mx-auto align transition-all overflow-hidden bg-white rounded-3xl shadow-md w-60 h-80 only:h-56 shadow-red-900 border-solid border-2"
+    >
         <div class="w-full py-4 bg-gradient-to-b from-blue-100 to-transparent shadow-md relative">
             <app-catch-button></app-catch-button>
             <img
@@ -18,7 +21,31 @@
             <a class="block text-2xl font-bold text-gray-800 capitalize">
                 {{ pokemon?.name }}
             </a>
-            <button class="text-sm transition-colors text-gray-700 relative bottom-0.5 hover:text-red-800">show more</button>
+            <button
+                (click)="getMoreInfo(pokemon!.name)"
+                class="text-sm transition-colors text-gray-700 relative bottom-0.5 hover:text-red-800"
+            >
+                <div *ngIf="!showMore">show stats</div>
+                <div *ngIf="showMore">hide stats</div>
+            </button>
+            <div *ngIf="showMore" class="text-sm">
+                <ul class="text-red-800" *ngIf="!loading">
+                    <li class="border-b-2 mt-0.5 w-40 mx-auto justify-center border-gray-200">
+                        <a><span class="font-semibold text-black">hp:</span> {{ pokemonStats[0].base_stat }}</a>
+                    </li>
+                    <li class="border-b-2 my-0.5 w-40 mx-auto justify-center border-gray-200">
+                        <a class="pr-2"><span class="font-semibold text-black">atk:</span> {{ pokemonStats[1].base_stat }}</a>
+                        <a><span class="font-semibold text-black">def:</span> {{ pokemonStats[2].base_stat }}</a>
+                    </li>
+                    <li class="border-b-2 my-0.5 w-40 mx-auto justify-center border-gray-200">
+                        <a class="pr-2"><span class="font-semibold text-black">sp_atk:</span> {{ pokemonStats[3].base_stat }}</a>
+                        <a><span class="font-semibold text-black">sp_def:</span> {{ pokemonStats[4].base_stat }}</a>
+                    </li>
+                    <li class="mt-0.5 w-40 mx-auto justify-center">
+                        <a><span class="font-semibold text-black">spd:</span> {{ pokemonStats[5].base_stat }}</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </li>

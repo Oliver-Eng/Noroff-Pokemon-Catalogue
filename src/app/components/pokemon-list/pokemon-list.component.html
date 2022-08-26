@@ -1,5 +1,6 @@
-<div class="container flex mx-auto">
-    <ul class="flex flex-row flex-wrap justify-center">
-        <app-pokemon-list-item *ngFor="let pokemon of pokemons" [pokemon]="pokemon"> </app-pokemon-list-item>
+<div class="container mx-auto">
+    <ul class="flex flex-wrap justify-center items-start">
+        <app-pokemon-list-item *ngFor="let pokemon of pokemons" [pokemon]="pokemon" class="align-top relative top-0">
+        </app-pokemon-list-item>
     </ul>
 </div>
