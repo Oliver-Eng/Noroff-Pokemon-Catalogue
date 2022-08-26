@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { PokemonInfo, PokemonResults } from '../models/pokemon-results.model';
-import { Pokemon } from '../models/pokemon.model';
 import { StorageUtil } from '../utils/storage.util';
 const { apiPoke } = environment;
 
