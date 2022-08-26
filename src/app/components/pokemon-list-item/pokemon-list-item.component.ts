@@ -27,8 +27,8 @@ export class PokemonListItemComponent implements OnInit {
 
     public getMoreInfo(pokeName: string): void {
         this.showMore = this.showMore ? false : true;
-        this.loading = true;
         if (this.showMore) {
+            this.loading = true;
             this.http.get<Pokemon>(apiPokeSpec + pokeName).subscribe({
                 next: (pokemon: Pokemon) => {
                     this.pokemonStats = pokemon.stats;

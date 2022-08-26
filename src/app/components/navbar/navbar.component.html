@@ -4,7 +4,7 @@
             <img class="w-10 -ml-2 mr-2 bottom-1 relative" src="./assets/images/pokeball_logo.png" alt="logo" /> PokéTrainer</a
         >
 
-        <ul class="flex items-center gap-5">
+        <ul *ngIf="user !== undefined" class="flex items-center gap-5">
             <li><a routerLink="trainer" class="hover:text-red-800 transition-colors font-bold" href="">Trainer Page</a></li>
             <li><a routerLink="catalogue" class="hover:text-red-800 transition-colors font-bold" href="">Poké Catalogue</a></li>
         </ul>
