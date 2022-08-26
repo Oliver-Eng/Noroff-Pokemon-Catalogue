@@ -41,7 +41,8 @@ export class PokemonCatalogueService {
         const imageUrl: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
 
         this._loading = true;
-        this.http.get<PokemonResults>(apiPoke + 'pokemon?limit=100000&offset=0.').subscribe({
+        // Get all pokemon from 1-898 since 899 -> are special types with no image data
+        this.http.get<PokemonResults>(apiPoke + 'pokemon?limit=898&offset=0.').subscribe({
             next: (pokemonResults: PokemonResults) => {
                 // add additional ID and image information
                 pokemonResults.results.forEach((result, iteration) => {
